@@ -1,0 +1,150 @@
+#include<stdio.h>
+
+#define N 10
+
+int main(){
+
+  int v[N];
+
+  int i, k;
+
+  int S, M;
+
+  int Max, Min;
+
+  printf("Inserisci i %d numeri in riga separati da uno spazio: \n", N);
+
+  for(i = 0; i < N; i++){
+
+    scanf("%d", &v[i]);
+
+  }
+
+  Max = v[0];
+
+  Min = 0;
+
+  S = 0;
+
+  for(i = 0; i < N; i++){
+
+    if(v[i] > Max){
+
+      Max = v[i];
+
+    }
+
+    if(v[i] < Min){
+
+      Min = v[i];
+
+    }
+
+    S = S + v[i];
+
+  }
+
+  M = S / N;
+
+  for(i = Max + 1; i >= Min - 1; i--){
+
+    printf("%d", i);
+
+    if(i == M){
+
+      printf("   ");
+
+      for(k = 0; k < N; k++){
+
+	printf("=====");
+
+	if(v[k] > M){
+
+	  v[k]--;
+
+	}
+
+      }
+
+      printf("\n");
+
+    }
+
+    if(i == 0){
+
+      printf("   ");
+
+      for(k = 0; k < 5 * N; k++){
+
+	printf("-");
+
+      }
+
+      printf("\n");
+
+    }
+
+    if((i != 0) && (i != M)){
+
+      for(k = 0; k < N; k++){
+
+	if(i - 1 > 0){
+
+	  if((v[k] > 0) && (v[k] == i)){
+
+	    printf("    *");
+
+	    v[k]--;
+
+	  }
+	  else{
+
+	    printf("     ");
+
+	  }
+
+	}
+	else{
+
+	  if(i - 1 < 0){
+
+	    if((v[k] < 0) && (v[k] > Min)){
+
+	      printf("    *");
+
+	      v[k]++;
+
+	    }
+	    else{
+
+	      printf("     ");
+
+	    }
+
+	  }
+
+	}
+
+      }
+
+      printf("\n");
+
+    }
+
+  }
+
+  return 0;
+
+}
+
+	    
+
+	    
+	  
+	
+
+	  
+
+    
+
+    

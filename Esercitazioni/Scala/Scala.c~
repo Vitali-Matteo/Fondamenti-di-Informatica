@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+#define N 3
+#define MAX_INCR 10
+
+void Genera(int Mat[][N], int N, int Inc);
+
+void Stampa(int Mat[][N], int N);
+
+void Trasforma(int Mat[][N], int N);
+
+int main(){
+
+  int Mat[N][N];
+
+  int Inc;
+
+  return 0;
+
+}
+  

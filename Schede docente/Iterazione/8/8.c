@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int main(){
+
+  int n, nc, M;
+
+  printf("Inserisci un numero positivo: ");
+  scanf("%d", &n);
+
+  nc = 0;
+
+  M = n;
+
+  while(n > 0){
+
+    nc = 10 * nc + (n % 10);
+
+    n = n / 10;
+
+  }
+
+  printf("%d %d", nc, M);
+
+  if(nc == M){
+
+    printf("Il numero %d è palindromo. \n", M);
+
+  }
+  else{
+
+    printf("Il numero %d non è palindromo. \n", M);
+
+  }
+
+  return 0;
+
+}
+
+    

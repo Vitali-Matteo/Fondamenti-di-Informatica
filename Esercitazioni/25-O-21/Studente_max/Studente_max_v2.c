@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<string.h>
+
+#define N 99
+
+#define M 19
+
+int main(){
+
+  int i;
+
+  int Ni;
+
+  char Nome_Max[M + 1];
+
+  char Nome[M + 1];
+
+  int Max;
+
+  int Voto;
+
+  do{
+
+    printf("Insersci il numero di studenti che vuoi inserire: ");
+    scanf("%d", &Ni);
+
+  }while((Ni < 0) || (Ni > N));
+
+  Max = 0;
+
+  for(i = 0; i < Ni; i++){
+
+    printf("Inserisci il nome dello studente numero %d: ", i + 1);
+    scanf(" %[^\n]", Nome);
+
+    do{
+
+      printf("Inserisci il voto dello studente di nome %s: ", Nome);
+      scanf("%d", &Voto);
+
+    }while((Voto < 0) || (Voto > 30));
+
+    if(Voto > Max){
+
+      Max = Voto;
+
+      strcpy(Nome, Nome_Max);
+
+    }
+
+  }
+
+  printf("Lo studente con il voto massimo è: %s. Il voto massimo è: %d.\n", Nome_Max, Max);
+
+  return 0;
+
+}

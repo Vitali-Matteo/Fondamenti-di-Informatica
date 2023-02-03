@@ -1,0 +1,43 @@
+#include<stdio.h>
+
+void Max(int a, int b, int* Max);
+
+int main(){
+
+  int a, b, c;
+
+  int Max;
+
+  printf("Inserisci il primo numero: ");
+  scanf("%d", &a);
+
+  printf("Inserisci il secondo numero: ");
+  scanf("%d", &b);
+
+  printf("Inserisci il terzo numero: ");
+  scanf("%d", &c);
+
+  Max(a, b, &Max);
+
+  Max(c, *Max, &Max);
+
+  printf("Il massimo numero tra %d, %d e %d è: %d. \n", a, b, c, *Max);
+
+  return 0;
+
+}
+
+void Max(Int a, int b, int* Max){
+
+  if(a > b){
+
+    *Max = a;
+
+  }
+  else{
+
+    *Max = b;
+
+  }
+
+}

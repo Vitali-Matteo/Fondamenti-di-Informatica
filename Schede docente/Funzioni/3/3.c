@@ -1,0 +1,60 @@
+#include<stdio.h>
+
+#define N 20
+#define M 10
+
+float Media(int v[], int La);
+
+int main(){
+
+  int v[N];
+
+  int vs[M];
+
+  int i;
+
+  float Me, Ms;
+
+  printf("Inserisci gli elementi del primo array: ");
+
+  for(i = 0; i < N; i++){
+
+    scanf("%d", &v[i]);
+
+  }
+
+  printf("Inserisci gli elementi del secondo array: ");
+
+  for(i = 0; i < M; i++){
+
+    scanf("%d", & vs[i]);
+
+  }
+
+  Me = Media(v, N);
+
+  Ms = Media(vs, M);
+
+  printf("La media degli elementi del primo array è: %f. Quella del secondo è: %f. \n", Me, Ms);
+
+  return 0;
+
+}
+
+float Media(int v[], int La){
+
+  int S;
+
+  int i;
+
+  S = 0;
+
+  for(i = 0; i < La; i++){
+
+    S = S + v[i];
+
+  }
+
+  return (float) S / La;
+
+}

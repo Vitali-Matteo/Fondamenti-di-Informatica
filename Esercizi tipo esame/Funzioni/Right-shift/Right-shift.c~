@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<string.h>
+
+#define N 100
+
+void Right_shift(char S[], int Shift);
+
+int main(){
+
+  char S[N + 1];
+
+  int Shift;
+
+  printf("Inserisci una stringa di massimo %d caratteri: \n", N);
+  scanf(" %[^\n]", S);
+
+  do{
+
+    printf("Inserisci lo shift a destra che vuioi avere: ");
+    scanf("%d", &Shift);
+
+  }while(Shift <= 0);
+
+  Right_shift(S, Shift);
+
+  printf("La stringa con shift %d diventa: %s. \n", Shift, S);
+
+  return 0;
+
+}
+
+void Right_shift(char S[], int Shift){
+
+  int i, k;
+
+  char Temp;
+
+  int Lungh = strlen(S);
+
+  for(i = 1; i <= Shift; i++){
+
+    Temp = S[Lungh - 1];
+
+    for(k = Lungh - 1; k > 0; k++){
+
+      S[k] = S[k - 1];
+
+    }
+
+    S[0] = Temp;
+
+  }
+
+}

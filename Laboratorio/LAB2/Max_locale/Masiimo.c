@@ -1,0 +1,121 @@
+#include<stdio.h>
+
+#define N 4
+
+int main(){
+
+  int Mat[N + 2][N + 2];
+
+  int Bool[N][N];
+
+  int i, k, h, j;
+
+  int flag;
+
+  printf("Inserisci la matrice di dimensioni %d X %d, riga per riga: \n", N, N);
+
+  for(i = 1; i < N + 1; i++){
+
+    for(k = 1; k < N + 1; k++){
+
+      scanf("%d", &Mat[i][k]);
+
+    }
+
+  }
+
+  for(k = 0; k < N; k++){
+
+    Mat[0][k + 1] = Mat[N][k + 1];
+
+    Mat[N + 1][k + 1] = Mat[1][k + 1];
+
+  }
+
+  for(i = 0; i < N; i++){
+
+    Mat[i + 1][0] = Mat[i + 1][N];
+
+    Mat[i + 1][N + 1] = Mat[i + 1][1];
+
+  }
+
+  Mat[0][0] = Mat[N][N];
+
+  Mat[N + 1][0] = Mat[1][N];
+
+  Mat[N + 1][N + 1] = Mat[1][1];
+
+  Mat[0][N + 1] = Mat[N][1];
+
+  for(i = 0; i < N; i++){
+
+    for(k = 0; k < N; k++){
+
+      Bool[i][k] = 1;
+
+    }
+
+  }
+
+  for(i = 1; i <= N; i++){
+
+    for(k = 1; k <= N; k++){
+
+      for(h = i - 1; h < i + 1; h++){
+
+		for(j = k - 1; j < k + 1; j++){
+	
+		  	if(Mat[h][j] > Mat[i][k]){
+	
+		    	Bool[i - 1][k - 1] = 0;
+	
+		  	}
+	
+		}
+
+      }
+
+    }
+
+  }
+
+  for(i = 0; i < N; i++){
+
+    for(k = 0; k < N; k++){
+
+      if(Bool[i][k] == 1){
+
+	Mat[i + 1][k + 1] = 0;
+
+      }
+
+    }
+
+  }
+
+  printf("Stampo la matrice risultanate: \n");
+
+  for(i = 1; i < N + 1; i++){
+
+    for(k = 1; k < N + 1; k++){
+
+      printf("%d ", Mat[i][k]);
+
+    }
+
+    printf("\n");
+
+  }
+
+  return 0;
+
+}
+
+  
+
+      
+
+ 
+
+    

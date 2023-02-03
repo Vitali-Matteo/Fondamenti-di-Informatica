@@ -1,0 +1,80 @@
+#include<stdio.h>
+
+typedef struct{
+
+  int n;
+
+  int d;
+
+}Frazione_t;
+
+int main(){
+
+  Frazione_t F1, F2, Somma;
+
+  int S;
+
+  int n, d, r;
+
+  do{
+
+    printf("Inserisci la prima frazione ... / ...: ");
+    scanf("%d / %d", &F1.n, &F1.d);
+
+    printf("Inserisci la seconda frazione ... / ...: ");
+    scanf("%d / %d", &F2.n, &F2.d);
+
+  }while((F1.d == 0) || (F2.d == 0));
+
+  S = F1.n * F2.d + F2.n * F1.d;
+
+  Somma.n = S;
+
+  Somma.d = F1.d * F2.d;
+
+  printf("La frazione somma è la seguente: %d / %d. \n", Somma.n , Somma.d);
+
+  printf("Aggiusto il segno... \n");
+
+  if(Somma.d < 0){
+
+    Somma.d = - Somma.d;
+
+    Somma.n = - Somma.n;
+
+  }
+
+  printf("La frazione aggiustata è: %d / %d. \n", Somma.n, Somma.d);
+
+  printf("Riduco la frazione... \n");
+
+  n = Somma.n;
+
+  d = Somma.d;
+
+  r = n % d;
+
+  while(r != 0){
+
+    n = d;
+
+    d = r;
+
+    r = n % d;
+
+  }
+
+  Somma.n = Somma.n / d;
+
+  Somma.d = Somma.d / d;
+
+  printf("La frazione ridotta è: %d / %d. \n", Somma.n, Somma.d);
+
+  return 0;
+
+}
+
+  
+  
+
+      

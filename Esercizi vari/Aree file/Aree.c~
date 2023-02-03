@@ -1,0 +1,92 @@
+#include<stdio.h>
+
+#define Ln 30
+
+void MassimaArea(char Nome[], int Riga, float Max);
+
+int main(){
+
+  char Nome[Ln + 1];
+
+  int Riga;
+
+  float MaxA;
+
+  printf("Inserisci il nome del file di input: ");
+  scanf("%s", Nome);
+
+  MassimaArea(Nome, &Riga, &MaxA);
+
+  if(Riga != -1){
+
+    printf("La riga in cui si trova l'area massima è: %d. L'area massima è: %f. \n", Riga, MaxA);
+
+  }
+  else{
+
+    printf("Eroore nel'apertura del file. \n");
+
+  }
+
+  return 0;
+
+}
+
+void MassimaArea(char Nome[], int Riga, float Max){
+
+  FILE* File;
+
+  int a, b, c;
+
+  INT I;
+
+  File = fopen(Nome, "r");
+
+  *Max = 0;
+
+  if(File){
+
+    I = 1;
+
+    while(fscanf(File, "%d %d", &a, &b) > 0){
+
+      if(a * b / 2.0f > *Max){
+
+	*Max = a * b / 2.0f;
+
+	*Riga = I;
+
+      }
+
+      if(fscanf(File, "%d %d %d", &a, &b, &c) > 0){
+
+	if((a + b) * c / 2.0f > *Max){
+
+	  *Max = (a + b) * c / 2.0f;
+
+	  *Riga = I;
+
+	}
+
+      }
+
+      I++;
+
+    }
+
+  }
+  else{
+
+    *Riga = -1;
+
+    *Max = -1;
+
+  }
+
+}
+
+	
+
+      
+
+    

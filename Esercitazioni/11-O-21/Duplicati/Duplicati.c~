@@ -1,0 +1,48 @@
+/* Scrivere un programma che dato un vettore lo stampa stampando una sola volta i duplicati */
+
+#include<stdio.h>
+
+#define L 10
+
+int main(){
+
+  int v[L];
+
+  int i;
+
+  int k;
+
+  int flag;
+
+  for(i = 0; i < L; i++){
+
+    printf("Inserisci il valore alla posizione %d: ", i + 1);
+    scanf("%d", &v[i]);
+
+  }
+
+  for(i = 0; i < L; i++){
+
+    flag = 1;
+
+    for(k = 0; k < i; k++){
+
+      if(v[i] == v[k]){
+
+	flag = 0;
+
+      }
+
+    }
+
+    if(flag == 1){
+
+      printf("%d ", v[i]);
+
+    }
+
+  }
+
+  return 0;
+
+}

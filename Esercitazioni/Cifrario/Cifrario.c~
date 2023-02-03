@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+#define N 100
+
+void Cifra(char C[], int k);
+
+void Decifra(char C[]);
+
+int main(){
+
+  char C[N];
+
+  int k;
+
+  do{
+
+    printf("Inserisci la chiave di cifratura: ");
+    scanf("%d", &k);
+
+  }while(k < 0);
+
+  printf("Inserisci la frase da cifrare: ");
+  scanf(" %[^\n]", C);
+
+  printf("La stringa da cifrare è: %s. Quella cifrata è: %s. \n", C, Cifra(C, N, k));/*
+
+printf("La stringa decifrata è: %s.\n", Decifra(C));*/
+
+  return 0;
+
+}
+
+void Cifra(char C[], int k){
+
+  int i;
+
+  for(i = 0; C[i] != '\0'; i++){
+
+    C[i] = ((C[i] - 'a' ) + k) % 26 + 'a';
+
+  }
+
+}
+
+  

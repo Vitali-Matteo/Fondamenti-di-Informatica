@@ -1,0 +1,76 @@
+#include<stdio.h>
+
+#define GMAX 8
+
+float Power(float a, int b);
+
+float Calcola(float Coeff[], float x, int expmax);
+
+int main(){
+
+  float Coeff[GMAX + 1];
+
+  float x;
+
+  int expmax;
+
+  int i;
+
+  do{
+
+    printf("Inserisci l'esponente massimo: ");
+    scanf("%d", &expmax);
+
+  }while((expmax < 0) || (expmax > GMAX));
+
+  for(i = 0, i < expmax; i++){
+
+    printf("Inserisci coefficente del monomio di grado %d: ", i);
+    scxanf("%f", &Coeff[i]);
+
+  }
+
+  printf("Inserisci l'assica a cui calcolare il polinomio: ");
+  scanf("%f", &x);
+
+  printf("Il polimio calcolato a %f è: %f. ", x, Calcola(x));
+
+  return 0;
+
+}
+
+float Power(float a, int b){
+
+  float R;
+
+  R = 1.0f;
+
+  while(b > 0){
+
+    R = R * a;
+
+    b--;
+
+  }
+
+  return R;
+
+}
+
+float Calcola(float Coeff[], float x, int expmax){
+
+  float R;
+
+  int i;
+
+  R = 0;
+
+  for(i = 0; i < expmax; i++){
+
+    R = R + Coeff[i] * Potenza(x, i);
+
+  }
+
+  return R;
+
+}

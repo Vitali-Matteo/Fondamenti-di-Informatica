@@ -1,0 +1,92 @@
+#include<stdio.h>
+
+#define Ln 20
+#define Ne 30
+#define MAX 10
+
+typedef struct{
+
+  char Nome[Ln + 1];
+
+  int voto;
+
+}Exam;
+
+typedef struct{
+
+  int Cod;
+
+  int Nef;
+
+  Exam Esami[Ne];
+
+}Student;
+
+void Riempi(Student* S);
+
+void Stampa(Student S[], int Cp);
+
+Student MaxMedia(Student S[]);
+
+int main(){
+
+  Student S[MAX];
+
+  int Cp;
+
+  Student MaxMed;
+
+  printf("Inserisci gli studenti: \n");
+
+  Riempi(&S[0]);
+
+  printf("Inserisci un codice persona: ");
+  scanf("%d", &Cp);
+
+  MaxMed = MaxMedia(S);
+
+  printf("Codice: %d. \n", MaxMed.Cod);
+
+  printf("Esami: \n");
+
+  for(i = 0; i < MaxMed.nef; i++){
+
+    printf("%s: %d. \n", MaxMed.Esami.Nome, MaxMed.Esami.voto);
+
+  }
+
+  return 0;
+
+}
+
+void Riempi(Student* S){
+
+  int i, k;
+
+  for(i = 0; i < MAX; i++){
+
+    printf("Cod. persona: ");
+    scanf("%d", &S -> Cod);
+
+    printf("Numero esam fatti: ");
+    scanf("%d", &S -> Nef);
+
+    for(k = 0; k < Nef; k++){
+
+      printf("Nome esame %d: ", i + 1);
+      scanf("%s", S -> Esami -> Nome);
+
+      printf("Voto esame %d: ", i + 1);
+      scanf("%d", &S -> Esami -> voto);
+
+    }
+
+  }
+
+}
+    
+
+    
+    
+
+  

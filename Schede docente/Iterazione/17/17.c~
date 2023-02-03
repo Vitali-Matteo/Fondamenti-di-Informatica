@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(){
+
+  int K, n;
+
+  do{
+
+    printf("Inserisci un numero positivo limite: ");
+    scanf("%d", &K);
+
+  }while(K < 0);
+
+  n = 0;
+
+  do{
+
+    printf("Un numero triangolare minore di %d è: %d. \n", K, n);
+
+    n = n + (n + 1);
+
+  }while(n <= K);
+
+  return 0;
+
+}

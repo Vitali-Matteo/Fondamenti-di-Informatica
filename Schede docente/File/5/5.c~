@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main(){
+
+  int n;
+
+  fprintf(STDIN, "%s",  "Inserisci un numero intero: ");
+  fscanf(STDIN, "%d", &n);
+
+  fprintf(STDOUT, "Hai inserito in STDIN il numero: %d. \n", n);
+
+  return 0;
+
+}
+
+  

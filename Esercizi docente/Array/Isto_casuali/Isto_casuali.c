@@ -1,0 +1,83 @@
+#include<stdio.h>
+
+#define L 10
+
+int main(){
+
+  int v[L];
+
+  int i, k;
+
+  int n, Max;
+
+  for(i = 0; i < L; i++){
+
+    v[i] = 0;
+
+  }
+
+  printf("Inserisci un numero intero compreso fra 0 e 9 (inclusi): ");
+  scanf("%d", &n);
+
+  while((n > 0) && (n < 10)){
+
+    v[n] = v[n] + 1;
+
+    printf("Inserisci un valore intero compreso fra 0 e 9 (inclusi): ");
+    scanf("%d", &n);
+
+  }
+
+  Max = v[0];
+
+  for(i = 0; i < L; i++){
+
+    if(v[i] > Max){
+
+      Max = v[i];
+
+    }
+
+  }
+
+  if(Max != 0){
+
+    for(i = 0; i < Max; i++){
+
+      for(k = 0; k < L; k++){
+
+	if(v[k] + i == Max){
+
+	  printf(" * ");
+
+	  v[k] = v[k] - 1;
+
+	}
+	else{
+
+	  printf("   ");
+
+	}
+
+      }
+
+      printf("\n");
+
+    }
+
+  }
+  else{
+
+    printf("Non stampo l'istogramma perchè non hai inserito alcun valore. \n");
+
+  }
+
+  return 0;
+
+}
+
+  
+
+	  
+
+  

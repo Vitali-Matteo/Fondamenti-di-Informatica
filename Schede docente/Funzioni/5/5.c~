@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+
+#define N 30
+
+void Lunghezza(char* S, int* Lungh);
+
+int main(){
+
+  char S[N];
+
+  int Lungh;
+
+  printf("Inserisci la parola di massimo %d caratteri: ", N);
+  scanf(" %[^\n]", S);
+
+  Lungh = 0;
+
+  Lunghezza(&S[0], &Lungh);
+
+  printf("La lunghezza della parola è: %d. ", Lungh);
+
+  return 0;
+
+}
+
+void Lunghezza(char* S, int* Lungh){
+
+  if(*S == '\0'){
+
+    return Lungh;
+
+  }
+  else{
+
+    Lunghezza(S + 1, &(*Lungh + 1));
+
+  }
+
+}

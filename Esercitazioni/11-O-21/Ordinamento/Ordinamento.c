@@ -1,0 +1,52 @@
+/* Scrivere un programma che preso un array di interi lo stampa in ordine crescente*/
+
+#include<stdio.h>
+
+#define L 10
+
+int main(){
+
+  int v[L];
+
+  int i;
+
+  int k;
+
+  int temp;
+
+  for(i = 0; i < L; i++){
+
+    printf("Inserisci il numero di posizione %d: ", i + 1);
+    scanf("%d", &v[i]);
+
+  }
+
+  for(i = 0; i < L; i++){
+
+    for(k = i + 1; k < L; k++){ /*Dopo ogni iterazione, abbiamo che l'elemento massimo si è messo apposto alla fine del vetore*/
+
+      if(v[i] > v[k]){
+
+	temp = v[i];
+
+	v[i] = v[k];
+
+	v[k] = temp;
+
+      }
+
+    }
+
+  }
+
+  for(i = 0; i < L; i++){
+
+    printf("Elemnto %d dell' array ordinato è: %d. \n", i + 1, v[i]);
+
+  }
+
+  return 0;
+
+}
+
+    

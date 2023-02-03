@@ -1,0 +1,123 @@
+#include<stdio.h>
+
+#define N 100
+
+#define Ln 30
+#define Lc 30
+
+typedef struct{
+
+  char Nome[Ln + 1];
+  
+  char Cogn[Lc + 1];
+
+  char s;
+
+  int anno;
+
+}Persona;
+
+Persona Get_youngest(Persona Persone[], int Nl);
+
+int main(){
+
+  FILE* File;
+
+  Persona Persone[N];
+
+  Persona Giov;
+
+  int Nl;
+
+  int i, k;
+
+  char c;
+
+  File = fopen("Persone.txt", "r");
+
+  if(File){
+
+    fscanf(File, "%d", &Nl);
+
+    for(i = 0; i < Nl; i++){
+
+      k = 0;
+
+      fscanf(File, "%c", &c);
+
+      while(c != ' '){
+
+	Persone[i].Nome[k] = c;
+
+	k++;
+
+	fscanf(File, "%c", &c);
+
+      }
+
+      k = 0;
+
+      fscanf(File, "%c", &c);
+
+      while(c != ' '){
+
+	Persone[i].Cogn[k] = c;
+
+	k++;
+
+	fscanf(File, "%c", &c);
+
+      }
+
+      fscanf(File, "%c", &Persone[i].s);
+
+      fscanf(File, "%d", &Persone[i].anno);
+
+      Giov = Get_youngest(Persone, Nl);
+
+      printf
+
+    }
+
+  }
+  else{
+
+    printf("Errore nell'apertura del file. \n");
+
+  }
+
+  return 0;
+
+}
+
+Persona Get_youngest(Persona Persone[], int Nl){
+
+  int i;
+
+  int mine;
+
+  int Ind;
+
+  mine = Persone[0].anno;
+
+  for(i = 0; i < Nl; i++){
+
+    if(Persone[i].anno > mine){
+
+      mine = Persone[i].anno;
+
+      Ind = i;
+
+    }
+
+  }
+
+  return Persone[Ind];
+
+}
+	
+
+      
+      
+    
+  

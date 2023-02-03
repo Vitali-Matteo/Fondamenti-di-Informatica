@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<string.h>
+
+#define L 50
+
+int main(){
+
+  char Parola[L + 1];
+
+  int i, k;
+
+  int G, g;
+
+  int Noccor;
+
+  printf("Inserisci la parola che devo controllare: ");
+  scanf("%s", Parola);
+
+  len = strlen(Parola);
+
+  g = 0;
+
+  for(i = 0; Parola[i] != '\0'; i++){
+
+    Parola[i] = tolower(Parola[i]);
+
+    g++;
+
+  }
+
+  G = 0;
+
+  for(i = 0; Parola[i] != '\0'; i++){
+
+    Noccor = 0;
+
+    for(k = 0; Parola[k] != '\0'; k++){
+
+      if(Parola[i] == Parola[k]){
+
+	Noccor++;
+
+      }
+
+    }
+
+    if(Noccor > G){
+
+      G = Noccor;
+
+    }
+
+    if(Noccor < g){
+
+      g = Noccor;
+
+    }
+
+  }
+
+  printf("Il grado minimo e quello massimo della parola %s sono: %d e %d. \n", Parola, g, G);
+
+  return 0;
+
+}

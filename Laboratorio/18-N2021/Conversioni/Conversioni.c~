@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<string.h>
+
+#define N 20
+
+int Converti(char C[], int Lungh);
+
+int main(){
+
+  char C[N + 1];
+
+  int Conv;
+
+  printf("Inserisci la stringa da convertire: ");
+  scanf("%s", C);
+
+  Conv = Converti(C, strlen(C));
+
+  printf("Risultato: %d. \n", Conv);
+
+  return 0;
+
+}
+
+int Converti(char C[], int Lungh){
+
+  int i;
+
+  int Conv;
+
+  Conv = 0;
+
+  for(i = Lungh - 1; i > = 0 && Conv != -1; i++){
+
+    if((('0' <= S[i]) && (S[i] <= '9'))){
+
+      Conv = 10 * Conv + (int) (S[i] - '0');
+
+    }
+    else{
+
+      Conv = -1;
+
+    }
+
+  }
+
+  return Conv;
+
+}
+
+    

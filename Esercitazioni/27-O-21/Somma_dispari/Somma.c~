@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+void Somma(int a, int b);
+
+int main(){
+
+  int a, b;
+
+  printf("Inserisci il primo numero: ");
+  scanf("%d", &a);
+
+  printf("Inserisci il secondo numero: ");
+  scanf("%d", &b);
+
+  printf("La somma di tutti i numeri dispari tra %d e %d è: %d. \n", (a < b) * a + (b < a) * b, (a > b) * a + (b > a) * b, Somma(a, b));
+
+  return 0;
+
+}
+
+int Somma(int a, int b){
+
+  int i;
+
+  int S;
+
+  S = 0;
+
+  a = (a > b) * a + (b > a) * b;
+
+  b = (a > b) * b + (b > a) * a;
+
+  for(i = b; i < a; i++){
+
+    if(i % 2 == 0){
+
+      S = S + i;
+
+    }
+
+  }
+
+  return S;
+
+}

@@ -1,0 +1,63 @@
+#include<stdio.h>
+
+#define N 1000
+
+#define Ln 30
+
+int main(){
+
+  FILE* File;
+
+  char Nome[Ln + 1];
+
+  int v[N];
+
+  int i;
+
+  int n;
+
+  int Nl;
+
+  printf("Inserisci il nome del file: ");
+  scanf("%d", Nome);
+
+  File = fopen(Nome, "r");
+
+  if(File){
+
+    i = 0;
+
+    Nl = 0;
+
+    while(fscanf(File, "%d", &n) > 0){
+
+      v[i] = n;
+
+      i++;
+
+      Nl++;
+
+    }
+
+    printf("Stampo il contenuto del file: ");
+
+    for(i = 0; i < Nl; i++){
+
+      printf("Elemento %d del file: %d. \n", i + 1, v[i]);
+
+    }
+
+    fclose(File);
+
+  }
+  else{
+
+    printf("Errore nell'apertura del file. \n");
+
+  }
+
+  return 0;
+
+}
+
+      

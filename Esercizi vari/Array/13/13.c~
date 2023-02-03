@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<string.h>
+
+#define L1 30
+#define L2 30
+
+int main(){
+
+  char P1[L1 + 1];
+  char P2[L2 + 1];
+
+  int i, k;
+
+  int S;
+
+  int Anagrammi;
+
+  printf("Inserisci la prima parola: ");
+  scanf("%s", P1);
+
+  printf("Inserisci la seconda parola: ");
+  scanf("%s", P2);
+
+  if(strlen(P1) == strlen(P2)){
+
+    Anagrammi = 1;
+
+    for(i = 0; P1[i] != '\0' && Anagrammi; i++){
+
+      S = 0;
+
+      for(k = 0; P1[k] != '\0'; k++){
+
+	if(P1[k] == P1[i]){
+
+	  S++;
+
+	}
+
+      }
+
+      for(k = 0; P2[k] != '\0'; k++){
+
+	if(P1[i] == P2[k]){
+
+	  S--;
+
+	}
+
+      }
+
+      if(S != 0){
+
+	Anagrammi = 0;
+
+      }
+
+    }
+
+    if(Anagrammi == 1){
+
+      printf("Le parole %s e %s sono anagrammi. \n");
+
+    }
+    else{
+
+      printf("Le parole %s e %s non sono anagrammi. \n");
+
+    }
+
+  }
+  else{
+
+    printf("Le parole %s e %s non sono angrammi. \n");
+
+  }
+
+  return 0;
+
+}

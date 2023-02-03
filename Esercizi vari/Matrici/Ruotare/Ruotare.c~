@@ -1,0 +1,55 @@
+#include<stdio.h>
+
+#define L 5
+
+int main(){
+
+  int Mat[L][L];
+
+  int i, k;
+
+  int temp;
+
+  printf("Inserisci la matrice riga per riga: ");
+
+  for(i = 0; i < L; i++){
+
+    for(k = 0; k < L; k++){
+
+      scanf("%d", &Mat[i][k]);
+
+    }
+
+  }
+
+  for(i = 0; i < L; i++){
+
+    for(k = 0; k < L; k++){
+
+      temp = Mat[i][k];
+
+      MAt[i][k] = MAt[k][N - 1 -i];
+
+      Mat[N - 1 - i][k] = temp;
+
+    }
+
+  }
+
+  printf("\n");
+
+  for(i = 0; i < L; i++){
+
+    for(k = 0; k < L; k++){
+
+      printf("%d ", Mat[i][k]);
+
+    }
+
+    printf("\n");
+
+  }
+
+  return 0;
+
+}

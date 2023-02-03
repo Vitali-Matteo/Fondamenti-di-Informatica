@@ -1,0 +1,48 @@
+#include<stdio.h>
+
+int main(){
+
+  int n, np;
+
+  printf("Inserisci la successione di numeri nella forma: n m p q... \n");
+
+  scanf("%d", &n);
+
+  if(n == 0){
+
+    printf("Sequenza vuota... \n");
+
+  }
+  else{
+
+    do{
+
+      np = n;
+
+      scanf("%d", &n);
+
+      if((n > np) && (n != 0)){
+
+	crescente = 0;
+
+      }
+
+    }while((n != 0) && (crescente == 1));
+
+    if(crescente == 1){
+
+      printf("La successione è crescente. \n");
+
+    }
+    else{
+
+      printf("La successione è decrescente. \n");
+
+    }
+
+  }
+
+  return 0;
+
+}
+	

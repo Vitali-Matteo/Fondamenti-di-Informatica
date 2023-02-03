@@ -1,0 +1,80 @@
+#include<stdio.h>
+
+#define L 365
+
+typedef struct{
+
+  int Qmax;
+
+  int Parray;
+
+}QMAX_t;
+
+int main(){
+
+  int Quotazioni[L];
+
+  int i, k;
+
+  QMAX_t qMax;
+
+  int Pcost;
+
+  printf("Inerisci le %d quotazioni: \n", L);
+
+  for(i = 0; i < L; i++){
+
+    scanf("%d", &Quotazioni[i]);
+
+    if((Quotazioni[i] < 0) || (Quotazioni[i] > 100)){
+
+      Quotazioni[i] = 0;
+
+    }
+
+  }
+
+  printf("Cerco la quotazione massima... \n");
+
+  qMax.Qmax = v[0];
+
+  for(i = 0; i < L; i++){
+
+    if((v[i] != 0) && (v[i] > qMAx.Qmax)){
+
+      qMax.Qmax = v[i];
+      qMAx.Parray = i;
+
+    }
+
+  }
+
+  printf("Stampo la struttura dati... \n");
+  printf("Massimo: %d. \n", qMax.Qmax);
+  printf("Data: %d. \n", qMax.Parray);
+
+  Pcost = 0;
+
+  for(i = 0; i < L; i++){
+
+    for(k = i + 1; v[k] == v[i] && k < L; k++);
+
+    if(k - i > 1){
+
+      Pcost++;
+
+    }
+
+    i = i + k -1;
+
+  }
+
+  printf("Il numero di periodi in cui è costante è: %d. \n", Pcost);
+
+  return 0;
+
+}
+
+  
+
+    

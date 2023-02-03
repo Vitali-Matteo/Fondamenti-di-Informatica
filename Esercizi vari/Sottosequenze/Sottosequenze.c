@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<string.h>
+
+#define N 100
+
+int Sottosequenza(char s1[], char s2[], int Ls1, int Ls2);
+
+void Genera(char s1[], char s3[], int Pi, int Ls1, int Ls2);
+
+int main(){
+
+  char s1[N + 1];
+
+  char s2[N + 1];
+
+  char s3[N + 1];
+
+  int Pi;
+
+  printf("Inserisci la prima stringa: ");
+  scanf("%s", s1);
+
+  printf("Inserisci la second stringa: ");
+  scanf("%s", s2);
+
+  Pi = Sottosequenza(s1, s2, strlen(s1), strlen(s2));
+
+  printf("Valore ottenuto: %d. \n", Pi);
+
+  if(Pi != -1){
+
+    Genera(s1, s3, Pi, strlen(s1), strlen(s2));
+
+    printf("La stringa ottenuta è: %s. \n", s3);
+
+  }
+
+  return 0;
+
+}
+
+int Sottosequenza(char s1[], char s2[], int Ls1, int Ls2){
+
+  int i, k;
+
+  int Sottoseq;
+
+  if(Ls1 >= Ls2){
+
+    Sottoseq = 0;
+
+    for(i = 0; i <= Ls1 - Ls2 && !Sottoseq; i++){
+
+      Sottoseq = 1;
+
+      for(k = 0; k < Ls2; k++){
+
+	if(s1[i + k] != s2[k]){
+
+	  Sottoseq = 0;
+
+	}
+
+      }
+
+    }
+
+    return i - 1;
+
+  }
+  else{
+
+    return -1;
+
+  }
+
+}
+
+void Genera(char s1[], char s3[], int Pi, int Ls1, int Ls2){
+
+  int i;
+
+  for(i = 0; i < Pi; i++){
+
+    s3[i] = s1[i];
+
+  }
+
+  for(i = Pi + Ls2; i < Ls1; i++){
+
+    s3[i - Ls2] = s1[i];
+
+  }
+
+}
+
+	
+
+    
+    

@@ -1,0 +1,121 @@
+#include<stdio.h>
+
+#define N 10
+
+typedef struct{
+
+  int Giorni;
+
+  int Ore;
+
+  int Min;
+
+  int Sec;
+
+}Durata_temp_t;
+
+Durata_temp_t Totale(Durata_temp_t* A, Durata_tempt_t B);
+
+int main(){
+
+  Durata_temp_t Intervalli[N];
+
+  Durata_temp_t Somma;
+
+  int i;
+
+  int n;
+
+  do{
+
+    printf("Quanti elementi vuoi inserire? ");
+    scanf("%d", &n);
+
+  }while((n < 0) || (n > L));
+
+  for(i = 0; i < L; i++){
+
+    Intervalli[i].Giorni = 0;
+
+    Intervalli[i].Ore = 0;
+
+    Intervalli[i].Min = 0;
+
+    Intervalli[i].Sec = 0;
+
+  }
+
+  for(i = 0; i < n; i++){
+
+    do{
+
+      printf("Inserisci numero ore: ");
+      scanf("%d", &Intervalli[i].Ore);
+
+    }while((Intervalli[i].Ore < 0) || (Intervalli[i].Ore > 23));
+
+    do{
+
+      printf("Inserisci numero minuti: ");
+      scanf("%d", &Intervalli[i].Min);
+
+    }while((Intervalli[i].Min < 0) || (Intervalli[i].Min > 59));
+
+    do{
+
+      printf("Inserisci numero secondi: ");
+      scanf("%d", &Intervalli[i].Sec);
+
+    }while((Intervalli[i].Sec < 0) || (Intervalli[i].Sec > 59));
+
+    Intervalli[i].Giorni = 0;
+
+  }
+
+  Somma.Giorni = 0;
+
+  Somma.Ore = 0;
+
+  Somma.Min = 0;
+
+  Somma.Sec = 0;
+
+  for(i = 0; i < L; i++){
+
+    Totale(*Somma, Intervalli[i]);
+
+  }
+
+  printf("Totale: %d giorno\i, %d ora\e, %d minuto\i e %secondo\i. \n", Somma.Giorni, Somma.Ore, Somma.Min, Somma.Sec);
+
+  return 0;
+
+}
+
+Durata_temp_t Totale(Durata_temp_t* A, Durata_temp_t B){
+
+  A.Sec = A.Sec + B.Sec;
+
+  A.Min = A.Min + B.Min;
+
+  A.Ore = A.Ore + B.Ore;
+
+  A.Min = A.Min + A.Sec / 60;
+
+  A.Sec = A.Sec % 60;
+
+  A.Ore = A.Ore + A.Min / 60;
+
+  A.Min = A.Min % 60;
+
+  A.Giorni = A.Giorni + A.Ore / 24;
+
+  A.Ore = A.Ore % 60;
+
+}
+
+  
+
+    
+
+  

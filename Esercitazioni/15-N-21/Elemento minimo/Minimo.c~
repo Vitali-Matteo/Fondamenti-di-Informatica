@@ -1,0 +1,82 @@
+#include<stdio.h>
+
+#define N 100
+
+void Minimo(int v[], int i, int La, int* Min);
+
+int main(){
+
+  int v[N];
+
+  int i;
+
+  int Minimo;
+
+  printf("Inserisci gli elementi dell'array di lunghezza %d: \n", N);
+
+  for(i = 0; i < N; i++){
+
+    scanf("%d", &v[i]);
+
+  }
+
+  Minimo(v, N);
+
+  printf("Il minimo elemento dell'aarray è: %d.\n", Minimo);
+
+  return 0;
+
+}
+
+void Minimo(int v[], int i){
+
+  int Min_resto;
+
+  if(i == 1){
+
+    return A[0];
+
+  }
+  else{
+
+    if(v[n - 1] < min_resto){
+
+      return v[n - 1];
+
+    }
+    else{
+
+      return min_resto;
+
+    }
+
+  }
+
+}
+
+int Minimo_2(int v[], int i, int La, int min){
+
+  if(i >= n){
+
+    return min;
+
+  }
+  else{
+
+    if(v[i] < min){
+
+      min = v[i];
+
+    }
+    else{
+
+      return Minimo_2(v, i + 1, La, min); //Il min non è più lo stesso...
+
+    }
+
+  }
+
+}
+
+    
+

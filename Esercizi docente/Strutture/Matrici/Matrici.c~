@@ -1,0 +1,137 @@
+#include<stdio.h>
+
+#define N 5
+
+typedef struct{
+
+  int NR;
+
+  int NC;
+
+  int Mat[NR][NC];
+
+}Matrice_t;
+
+int main(){
+
+  Matrice_t MAT1, MAT2, Prodotto;
+
+  int i, k;
+
+  int S;
+
+  int nr, nc;
+
+  printf("Inserisci il numero righe della matrice 1: ");
+  scand("%d", &nr);
+
+  while((nr < 0) || (nr > N)){
+
+    printf("Errore. Reinserire numero righe: ");
+    scanf("%d", &nr);
+
+  }
+
+  do{
+
+    printf("Inserisci numero colonne della prima matrice: ");
+    scanf("%d", &nc);
+
+  }while((nc < 0) || (nc > L));
+
+  MAT1.NR = nr;
+
+  MAT1.nc = nc;
+
+  for(i = 0; i < nr; i++){
+
+    for(k = 0; k < nc; k++){
+
+      scanf("%d", &MAT1[i][k]);
+
+    }
+
+  }
+
+  do{
+
+    printf("Inserisci numero righe della prima matrice: ");
+    scanf("%d", &nr);
+
+  }while((nr < 0) || (nr > L));
+
+  do{
+
+    printf("Inserisci numero colonne della prima matrice: ");
+    scanf("%d", &nc);
+
+  }while((nc < 0) || (nc > L));
+
+  MAT2.NR = nr;
+
+  MAT2.nc = nc;
+
+  for(i = 0; i < nr; i++){
+
+    for(k = 0; k < nc; k++){
+
+      scanf("%d", &MAT2[i][k]);
+
+    }
+
+  }
+
+  if(MAT1.NC == MAT2.NR){
+
+    Prodotto.NR = MAT1.NC;
+
+    Prodotto.NC = MAT2.NR;
+
+    printf("La matrice prodotto sarà una %d X %d. \n", Prodotto.NR, Prodotto.NC);
+
+    for(i = 0; i < MAT1.NR; i++){
+
+      for(k = 0; k < MAT2.NC; k++){
+
+	S = 0;
+
+	for(j = 0; j < MAT1.NC; j++){
+
+	  S = S + MAT1[i][j] * MAT2[j][i];
+
+	}
+
+	Prodotto[i][k] = S;
+
+      }
+
+    }
+
+    printf("La matrice prodotto è: \n");
+
+    for(i = 0; i < Prodotto.NR; i++){
+
+      for(k = 0; k < Prodotto.NC; k++){
+
+	printf("%d ", Prodotto[i][k]);
+
+      }
+
+      printf("\n");
+
+    }
+
+  }
+  else{
+
+    printf("La matrice prodoto non è costruibile. \n");
+
+  }
+
+  return 0;
+
+}
+
+	
+
+  

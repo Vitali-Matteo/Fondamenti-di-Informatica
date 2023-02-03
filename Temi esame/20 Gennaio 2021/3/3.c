@@ -1,0 +1,61 @@
+#include<stdio.h>
+
+#define N 26
+
+int main(){
+
+  FILE* File;
+
+  int i;
+
+  char c;
+
+  int freq[N];
+
+  char controlla[N + 1];
+
+  File = fopen("Testo.txt", "r");
+
+  printf("Inserisci la stringa di controllo: ");
+  scanf("%s", controlla);
+
+  for(i = 0; i < N; i++){
+
+    freq[i] = 0;
+
+  }
+
+  if(File){
+
+    while(fscanf(File, "%c", &c) > 0){
+
+      if((('a' <= c) && (c <= 'z')) || (('A' <= c) && (c <= 'Z'))){
+
+	c = tolower(c);
+
+	freq[c - 'a']++;
+
+      }
+
+    }
+
+    for(i = 0; controlla[i] != '\0'; i++){
+
+      printf("%c -> %d. \n", controlla[i], freq[controlla[i] - 'a']);
+
+    }
+
+  }
+  else{
+
+    printf("Errore nell'apertura del file. \n");
+
+  }
+
+  return 0;
+
+}
+
+	
+
+  

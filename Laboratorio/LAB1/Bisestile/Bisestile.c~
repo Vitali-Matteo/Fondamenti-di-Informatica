@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int main(){
+
+  int a;
+
+  printf("Inserisci un anno dopo il 1900: ");
+  scanf("%d", &a);
+
+  while(a <= 1900){
+
+    printf("L'anno %d non va bene. Reinseriscilo: ", a);
+    scanf("%d", &a);
+
+  }
+
+  if(((a % 4 == 0) && (a % 100 != 0)) || (a % 400 == 0)){
+
+    printf("L'anno %d è bisestile. \n", a);
+
+  }
+  else{
+
+    printf("L'anno %d non è bisestile. \n", a);
+
+  }
+
+  return 0;
+
+}
+    

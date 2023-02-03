@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+#define PI 3.14f
+#define APIATTO 180.0f
+
+int main(){
+
+  float AngoloG;
+  float AngoloR;
+
+  printf("Inserisci l'angolo in gradi che si vuole convertire: ");
+  scanf("%f", &AngoloG);
+
+  if(AngoloG >=  0 && AngoloG <= 360){
+
+    AngoloR = (AngoloG / APIATTO) * PI;
+
+    printf("L'angolo in radianti corrispondente all'angolo in gradi %f è: %f \n.", AngoloG, AngoloR);
+
+  }
+  else{
+
+    printf("Errore nell'inserimento dell'angolo... \n");
+
+  }
+
+  return 0;
+
+}
+  

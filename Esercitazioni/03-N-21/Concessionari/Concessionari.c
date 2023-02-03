@@ -1,0 +1,167 @@
+#include<stdio.h>
+
+#define L 10
+#define N 50
+#define M 30
+#define K 7
+
+typedef struct{
+
+  int anno;
+
+  int mese;
+
+}Data_t;
+
+typedef struct{
+
+  char PIVA[M];
+
+  char Nome[M];
+
+  char Cogn[M];
+
+}Gestore_t;
+
+typedef struct{
+
+  char Mod[M];
+
+  char Targa[K];
+
+  Data_t Imm;
+
+}Auto_t;
+
+
+typedef struct{
+
+  unsigned int Cod;
+
+  Gestore_t Gest;
+
+  unsigned int nauto;
+
+  Auto_t Aut[N];
+
+}Concessionario_t;
+
+void Stampa(Concessionario_t v[], int len, int AA);
+
+int main(){
+
+  int i, k;
+
+  int len;
+
+  int AA;
+
+  Concessionario_t v[L];
+
+  do{
+
+    printf("Inserisci il numero di gestori che vuoi inserire: ");
+    scanf("%d", &len);
+
+  }while((len < 0) || (len > L));
+
+  do{
+
+    printf("Inserisci l'anno che vuoi ricercare: ");
+    scanf("%d", &AA);
+
+  }while(AA < 0);
+
+  for(i = 0; i < len; i++){
+
+    do{
+
+      printf("Inserisci il codice del concessionario %i: ", i + 1);
+      scanf("%u", &v[i].Cod);
+
+    }while(v[i].Cod < 0);
+
+    printf("Inserisci nome del concessionario %d: ", i + 1);
+    scanf(" %[^\n]", v[i].Gest.Nome);
+
+    printf("Inserisci cognome del concessionario %d: ", i + 1);
+    scanf(" %[^\n]", v[i].Gest.Cogn);
+
+    printf("Inserisci partita IVA del concessionario %d: ", i + 1);
+    scanf(" %[^\n]", v[i].Gest.PIVA);
+
+    do{
+
+      printf("Inserisci il numero di auto del concessionario %d: ", i + 1);
+      scanf("%u", &v[i].nauto);
+
+    }while((v[i].nauto < 0) || (v[i].nauto > N));
+
+    for(k = 0; k < v[i].nauto; k++){
+
+      printf("Inserisci modello dell'auto %d del concessionario %d: ", k + 1, i + 1);
+      scanf(" %[^\n]", v[i].Aut[k].Mod);
+
+      printf("Inserisci targa dell'auto %d del concessionario %d: ", k + 1, i + 1);
+      scanf(" %[^\n]", v[i].Aut[k].Targa);
+
+      do{
+
+	printf("Inserisci l'anno di immatricolazione dell'auto %d del concessionario %d: ", k + 1, i + 1);
+	scanf("%d", &v[i].Aut[k].Imm.anno);
+
+      }while(v[i].Aut[k].Imm.anno < 0);
+
+      do{
+
+	printf("Inserisci il mese di immatricolazione dell'auto %d del concessionario %d: ", k + 1, i + 1);
+	scanf("%d", &v[i].Aut[k].Imm.mese);
+
+      }while((v[i].Aut[k].Imm.mese < 0) || (v[i].Aut[k].Imm.mese > 12));
+
+    }
+
+  }
+
+  Stampa(v, len, AA);
+
+  return 0;	
+    
+}
+
+
+void Stampa(Concessionario_t v[], int len, int AA){
+
+  int i, k;
+
+  int Trovato;
+
+  for(i = 0; i < len; i++){
+
+    printf("Conc. %d, codice %u: gestore %s %s. \n", i + 1, v[i].Cod, v[i].Gest.Nome, v[i].Gest.Cogn);
+
+    printf("Immatricolazioni %d: \n", AA);
+
+    Trovato = 0;
+
+    for(k = 0; k < v[i].nauto; k++){
+
+      if(v[i].Aut[k].Imm.anno == AA){
+
+	printf("* mese %d: %s, %s. \n", v[i].Aut[k].Imm.mese, v[i].Aut[k].Mod, v[i].Aut[k].Targa);
+
+	Trovato = 1;
+
+      }
+
+    }
+
+    if(Trovato == 0){
+
+      printf("nessuna corrispondenza. \n");
+
+    }
+
+  }
+
+}

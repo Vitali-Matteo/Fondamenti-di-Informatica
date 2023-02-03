@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(){
+
+  int a, b, S;
+
+  S = 0;
+
+  printf("Inserisci i due valori separati da uno spazio: ");
+  scanf("%d %d", &a, &b);
+
+  while((a >= b) || (b >= a)){
+
+    S = S + (a >= b) * b + (b >= a) * a;
+
+    a = a + 1 * (b >= a);
+
+    b = b + 1 * (a >= b);
+
+  }
+
+  printf("La somma dei valori compresi è: %d. \n", S);
+
+  return 0;
+
+}

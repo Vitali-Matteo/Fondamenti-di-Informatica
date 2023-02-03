@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+int main(){
+
+  int a, b, c;
+
+  pritnf("Inserisci il valore di a: ");
+  scanf("%d",&a);
+
+  while(a < 0){
+
+    printf("Errore. Inserisci un altro valore: ");
+    scanf("%d", &a);
+
+  }
+
+  printf("Inserisci il valore di b: ");
+  scanf("%d", &b);
+
+  printf("Inserisci il valore di c: ");
+  scanf("%d", &c);
+
+  if((a + b > c) && (b + c > a) && (a + c > b)){
+
+    if((a * a + b * b == c * c) || (b * b + c * c == a * a) || (a * a + c * c == b * b)){
+
+      printf("La terna (%d, %d, %d) è una terna pitagorica. \n", a, b, c);
+
+    }
+    else{
+
+      printf("La terna (%d, %d, %d) non è una terna pitagorica. \n", a, b, c);
+
+    }
+
+  }
+  else{
+
+    printf("La terna (%d, %d, %d), non soddisfa la disuguaglianza triangolare. \n");
+
+  }
+
+  return 0;
+
+}

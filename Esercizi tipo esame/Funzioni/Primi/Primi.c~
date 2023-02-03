@@ -1,0 +1,94 @@
+#include<stdio.h>
+
+#define N 1000
+
+int Primo(int n);
+
+void Riduci(int v[], int La);
+
+int main(){
+
+  int v[N];
+
+  int La;
+
+  int i;
+
+  do{
+
+    printf("Inserisci la lunghezza dell'array: ");
+    scanf("%d", &La);
+
+  }while((La < 0) || (La > N));
+
+  printf("Inserisci l'array: \n");
+
+  for(i = 0; i < La; i++){
+
+    scanf("%d", &v[i]);
+
+  }
+
+  Riduci(v, La);
+
+  printf("Il vettore ridotto è: \n");
+
+  for(i = 0; v[i] != -1 && i < La; i++){
+
+    printf("  %d", v[i]);
+
+  }
+
+  return 0;
+
+}
+
+int Primo(int n){
+
+  int i;
+
+  int Primo;
+
+  Primo = 1;
+
+  i = 2;
+
+  while((i <= n / 2) && (Primo == 1)){
+
+    if(n % i == 0){
+
+      Primo = 0;
+
+    }
+
+  }
+
+  return Primo;
+
+}
+
+void Riduci(int v[], int La){
+
+  int i, k;
+
+  for(i = 0; i < La; i++){
+
+    if(v[i] != - 1){
+
+      if(Primo(v[i] == 0)){
+
+	for(k = i; k < La - 1; k++){
+
+	  v[i] = v[i + 1];
+
+	}
+
+	v[La - 1] = - 1;
+
+      }
+
+    }
+
+  }
+
+}

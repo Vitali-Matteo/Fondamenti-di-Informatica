@@ -1,0 +1,35 @@
+#include<stdio.h>
+
+int main(){
+
+  int n, nb, r, M;
+
+  printf("Inserisci un numero positivo: ");
+  scanf("%d", &n);
+
+  while(n < 0){
+
+    printf("Il numero %d inserito non è corretto. Reinserisci: ");
+    scanf("%d", &n);
+
+  }
+
+  nb = 0;
+
+  M = n;
+
+  while(n > 0){
+
+    r = n % 2;
+
+    nb = 10 * nb + r;
+
+    n = n / 2;
+
+  }
+
+  printf("Il numero %d in binario è: %d. \n", M, nb);
+
+  return 0;
+
+}

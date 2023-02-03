@@ -1,0 +1,63 @@
+#include<stdio.h>
+
+#define L 10
+
+int main(){
+
+  int v[L];
+
+  int i, k, prosegui;
+
+  for(i = 0; i < L; i++){
+
+    do{
+
+      printf("Inserisci il valore %d del vettore: ", i + 1);
+      scanf("%d", &v[i]);
+
+    }while(v[i] < 0);
+
+  }
+
+  printf("\n");
+
+  for(i = 0; i < L; i++){
+
+    printf("%d ", v[i]);
+
+  }
+
+  printf("\n \n");
+
+  do{
+
+    prosegui = 0;
+
+    for(i = 0; i < L; i++){
+
+      if(v[i] != 0){
+
+	prosegui = 1;
+
+	printf("* ");
+
+	v[i] = v[i] - 1;
+
+      }
+      else{
+
+	printf("  ");
+
+      }
+
+    }
+
+    printf("\n");
+
+  }while(prosegui);
+
+  return 0;
+
+}
+
+	

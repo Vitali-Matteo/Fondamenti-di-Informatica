@@ -1,0 +1,93 @@
+#include<stdio.h>
+
+int Ripetitivo(int n, int lunghn);
+
+int main(){
+
+  int n, copian;
+
+  int lunghn;
+
+  do{
+
+     printf("Inserisci un numero positivo: ");
+
+  }while(n <= 0);
+
+  copian = n;
+
+  lunghn = 0;
+
+  while(n > 0){
+
+    n = n / 10;
+
+    lunghn++;
+
+  }
+
+  n = copian;
+
+  if(Ripetitivo(n, lunghn) == 1){
+
+    printf("Il numero %d è ripetitivo. \n");
+
+  }
+  else{
+
+    printf("Il numero %d è vario. \n");
+
+  }
+
+  return 0;
+
+}
+
+int Ripetitivo(int n, int lunghn){
+
+  int copian, scopian;
+
+  int S;
+
+  if(lunghn > 10){
+
+    return 1;
+
+  }
+  else{
+
+    copian = n;
+
+    scopian = n;
+
+    S = 0;
+
+    while(lunghn > 0 && S == 0){
+
+      S = 0;
+
+      while(copian > 0 && S == 0){
+
+	if(copian % 10 == n % 10){
+
+	  S++;
+
+	}
+
+	copian =  copian / 10;
+
+      }
+
+      copian = scopian;
+
+      n = n / 10;
+
+    }
+
+    return S;
+
+  }
+
+}
+
+    

@@ -1,0 +1,126 @@
+#include<stdio.h>
+
+#define NR 3
+#define Nc 3
+
+void Riempi(int Mat[NR][], int NR, int NC);
+
+void Stampa(int Mat[NR][], int NR, int NC);
+
+void Dispari_cubi(int Mat[NR][], int NR, int NC);
+
+float Media_Mat(int Media[NR][], int NR, int NC);
+
+int main(){
+
+  int Mat[NR][NC];
+
+  float Media;
+
+  printf("Inserisci la matrice di dimensioni %d X %d, riga per riga: \n", NR, NC);
+
+  Riempi(Mat, NR, NC);
+
+  printf("Stampo la matrice: \n");
+
+  Stampa(Mat, NR, NC);
+
+  printf("Sostituisco i dispari e stampo: \n");
+
+  Dispari_cubi(Mat, NR, NC);
+
+  printf("Stampo: \n");
+
+  Stampa(Mat, NR, NC);
+
+  Media = Media_Mat(Mat, NR, NC);
+
+  return 0;
+
+}
+
+void Riempi(int Mat[NR][], int NR, int NC){
+
+  int i, k;
+
+  for(i = 0; i < NR; i++){
+
+    for(k = 0; k < NC; k++){
+
+      scanf("%d", &Mat[i][k]);
+
+    }
+
+  }
+
+}
+
+void Stampa(int Mat[NR][], int NR, int NC){
+
+  int i, k;
+
+  for(i = 0; i < NR; i++){
+
+    for(k = 0; k < NC; k++){
+
+      printf("\t", Mat[i][k]);
+
+    }
+
+    printf("\n");
+
+  }
+
+}
+
+void Dispari_cubi(int Mat[NR][], int NR, int NC){
+
+  int i, k;
+
+  for(i = 0; i < NR; i++){
+
+    for(k = 0; k < NC; k++){
+
+      if(Mat[i][k] % 2 == 1){
+
+	Mat[i][k] = Mat[i][k] * Mat[i][k] * Mat[i][k];
+
+      }
+
+    }
+
+  }
+
+}
+
+float Media_Mat(int Mat[NR][], int NR, int NC){
+
+  int i, k;
+
+  int S;
+
+  float Media;
+
+  S = 0;
+
+  for(i = 0; i < NR; i++){
+
+    for(k = 0; k < NC; k++){
+
+      S = S + Mat[i][k];
+
+    }
+
+  }
+
+  Media = (float) S / (NR * NC);
+
+  return Media;
+
+}
+
+  
+
+  
+
+
